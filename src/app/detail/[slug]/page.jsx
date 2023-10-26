@@ -1,18 +1,17 @@
 import DetailAnime from "@/components/DetailAnime";
 import HeaderMenu from "@/components/utilities/HeaderMenu";
+import VideoPlayer from "@/components/utilities/VideoPlayer";
+import { getData } from "@/libs/getData";
 import Image from "next/image";
 
 const Page = async ({ params }) => {
   const id = params.slug;
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime/${id}`
-  );
-  const topAnime = await res.json();
+  const detailAnime = await getData(`anime/${id}`)
   return (
     <div>
-      <HeaderMenu title={topAnime.data.title} />
+      <HeaderMenu title={detailAnime.data.title} />
       <section className="text-color-primary">
-        <DetailAnime data={topAnime} />
+        <DetailAnime data={detailAnime} />
       </section>
     </div>
   );
