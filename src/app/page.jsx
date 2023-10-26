@@ -7,7 +7,7 @@ import { getData } from "../libs/getData";
 const Page = async () => {
 
 const topAnime = await getData('top/anime', "limit=8")
-const rekomenAnime = await getData('recommendations/anime')
+// const rekomenAnime = await getData('recommendations/anime')
 
   return (
     <main className="md:p-4 p-2">
@@ -25,7 +25,7 @@ const rekomenAnime = await getData('recommendations/anime')
           textLink={"Lihat semua"}
           href={"/rekomen"}
         />
-        <RecomendAnime data={rekomenAnime} />
+        {/* <RecomendAnime data={rekomenAnime} /> */}
       </section>
     </main>
   );

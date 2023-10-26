@@ -4,11 +4,12 @@ import React from "react";
 
 const Page = async () => {
 
-  const rekomenAnime = await getData("recommendations/anime");
+  // const rekomenAnime = await getData("recommendations/anime");
 
   return (
     <main className="md:p-4 p-2">
-      <RecomendAnime data={rekomenAnime} />
+      <p>Rekomen</p>
+      {/* <RecomendAnime data={rekomenAnime} /> */}
     </main>
   );
 };
