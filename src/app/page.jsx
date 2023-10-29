@@ -1,14 +1,17 @@
 import AnimeList from "@/components/Animelist";
 import Header from "@/components/Animelist/Header";
 import RecomendAnime from "@/components/Recomendation";
-import { getData } from "../libs/getData";
-
+import { getData, getNestedAnimeResponse } from "../libs/getData";
 
 const Page = async () => {
+  const topAnime = await getData("top/anime", "limit=8");
+  let rekomenAnime = await getNestedAnimeResponse("recommendations/anime", "entry");
+  
+  const startIndex = Math.floor(Math.random() * (rekomenAnime.length - 4));
 
-const topAnime = await getData('top/anime', "limit=8")
-// const rekomenAnime = await getData('recommendations/anime')
-
+  rekomenAnime = {
+    data: rekomenAnime.slice(startIndex, startIndex + 4),
+  };
   return (
     <main className="md:p-4 p-2">
       <section>
@@ -19,13 +22,13 @@ const topAnime = await getData('top/anime', "limit=8")
         />
         <AnimeList data={topAnime} />
       </section>
-      <section className="mt-8">
+      <section>
         <Header
           title={"Rekomen Anime"}
-          textLink={"Lihat semua"}
-          href={"/rekomen"}
+          // textLink={"Lihat semua"}
+          href={"/populer"}
         />
-        {/* <RecomendAnime data={rekomenAnime} /> */}
+        <AnimeList data={rekomenAnime} />
       </section>
     </main>
   );

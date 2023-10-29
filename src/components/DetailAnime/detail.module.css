@@ -1,0 +1,15 @@
+.container {
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    display: grid;
+    gap: 1.25rem;
+}
+.information {
+    grid-column: col-start 2 / span 2;
+}
+.synopsis {
+    grid-column: col-start 4 / span 5;
+}
+.recomendation {
+    grid-column: col-start 9 / span 3;
+    background-color: brown;
+}
