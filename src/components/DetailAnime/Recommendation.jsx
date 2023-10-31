@@ -16,8 +16,8 @@ const Recommendation = ({ data }) => {
             >
               <Image
                 src={res.entry.images.webp.image_url}
-                width={60}
-                height={60}
+                width={100}
+                height={100}
                 alt="..."
               />
               <p className="text-md font-bold">{res.entry.title}</p>

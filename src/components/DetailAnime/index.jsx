@@ -1,13 +1,13 @@
 "use client";
 import Image from "next/image";
 import VideoPlayer from "../utilities/VideoPlayer";
-import { Play, Star } from "@phosphor-icons/react";
 import Characters from "./Characters";
 import Review from "./Review";
-import Recommendation from "./Recommendation";
-import styles from "./detail.module.css";
+import { Suspense } from "react";
 const DetailAnime = ({ data, review, character }) => {
   return (
+    <Suspense fallback={<p>Loading..</p>}>
+
     <div className="grid md:grid-cols-12 md:gap-5 grid-cols-6">
       <div className="md:col-start-1 col-start-2 md:col-span-3 col-span-4 flex flex-col items-center">
         <p className="md:hidden block font-bold text-3xl text-center mb-4">{data.data.title}</p>
@@ -54,6 +54,8 @@ const DetailAnime = ({ data, review, character }) => {
         <VideoPlayer videoId={data.data.trailer.youtube_id} />
       </section>
     </div>
+    </Suspense>
+
   );
 };
 

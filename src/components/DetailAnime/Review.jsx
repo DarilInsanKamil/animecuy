@@ -3,7 +3,6 @@ import React from "react";
 
 const Review = ({ data }) => {
   const limit = data?.data.slice(0, 2);
-  console.log(limit);
 
   return (
     <div className='mt-7 border-t-2'>
