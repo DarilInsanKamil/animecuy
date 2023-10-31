@@ -1,10 +1,13 @@
+import Loading from "@/app/loading";
 import Image from "next/image";
-import React from "react";
+import React, { Suspense } from "react";
 
 const Review = ({ data }) => {
+
   const limit = data?.data.slice(0, 2);
 
   return (
+    <Suspense fallback={<Loading/>}>
     <div className='mt-7 border-t-2'>
       <p className='font-bold text-lg my-4'>Review</p>
       {limit.map((res, idx) => {
@@ -20,6 +23,7 @@ const Review = ({ data }) => {
         );
       })}
     </div>
+    </Suspense>
   );
 };
 
